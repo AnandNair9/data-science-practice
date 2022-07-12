@@ -1,0 +1,16 @@
+---
+title: "README"
+author: "Anand Nair"
+date: '2022-07-12'
+output: html_document
+---
+
+This is a project by Anand Nair analyzing data on various car models and their price, manufacturers, fuel type, etc. It uses the car price prediction dataset from [Kaggle](https://www.kaggle.com/datasets/deepcontractor/car-price-prediction-challenge)
+
+
+
+
+
+Include in your README:
+- A description (1-2 sentences) about your dataset
+- Your name
