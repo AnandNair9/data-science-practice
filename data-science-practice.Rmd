@@ -1,0 +1,49 @@
+#### Load csv file ####
+x <- 5
+
+read.csv("data/CPP.csv")
+View(CPP)
+
+#### Save R object as a file ####
+saveRDS(CPP, "data/CPP.RDS")
+
+## Practice plotting with your dataset
+```{r}
+library(ggplot2)
+
+CPP$`Fuel type`
+CPP$Model
+CPP$Model[1]
+CPP$`Gear box type`
+CPP$
+
+head(CPP)
+ 
+first10 <- CPP$Model[1:5]
+
+ggplot(data = CPP, aes(x = Model)) +
+  geom_bar()
+
+ggplot(data = CPP, aes(x = Cylinders)) +
+  geom_bar()
+
+ggplot(data = CPP, aes(x = `Gear box type`)) +
+  geom_bar()
+
+ggplot(data = CPP, aes(x = `Prod. year`, y = Airbags)) +
+  geom_line(stat = "summary",
+            fun = "mean")
+
+ggplot(data = CPP, aes(x = `Leather interior`)) +
+  geom_bar()
+
+ggplot(data = CPP, aes(x = Category)) +
+  geom_bar()
+
+ggplot(data = CPP, aes(x = Category, y = Cylinders)) +
+  geom_violin()
+
+ggplot(data = CPP, aes(x = `Fuel type`)) +
+  geom_violin()
+
+```
