@@ -16,28 +16,45 @@ ggplot(data = CPP, aes(x = Manufacturer, y = Price)) +
 View(CPP)
 names(CPP)
 
-CPP %>%
-  filter(Price >= 1000) %>%
-  ggplot(aes(x = Price)) +
-    geom_histogram()
+select(CPP, Model)
+majorCars <- c("Civic", "Prius", "")
+filterData <- filter(CPP, Model %in% majorCars)
+filterData
+ggplot(data = filterData, aes(x = `Prod. year`, y = Price)) +
+  geom_line(stat = "summary",
+            fun = "mean")
 
-ggplot(CPP, aes(x = Mileage)) +
-  geom_bar()
+select(CPP, Model)
+majorCars <- c("Civic", "Prius", "")
+filterData <- filter(CPP, Model %in% majorCars)
+filterData
+ggplot(data = filterData, aes(x = `Prod. year`, y = Price, fill = Model)) +
+  geom_histogram(stat = "summary",
+            fun = "mean")
 
-CPP %>%
-  filterData <- filter(CPP, Model == "Civic" , Category == "Sedan" , Color == "Black")
-  filter2Data <- filter(CPP, Model == "Prius" , Category == "Sedan" , Color == "Black")
-  filterData
-  filter2Data
-  ggplot(data = filterData, aes(x = `Fuel type`, fill = "Red")) +
+select(CPP, Manufacturer)
+majorMaker <- c("MERCEDES-BENZ", "JAGUAR")
+CarMaker <- filter(CPP, Manufacturer %in% majorMaker)
+CarMaker
+ggplot(data = CarMaker, aes(x = `Prod. year`, y = Price, fill = Manufacturer)) +
+  geom_histogram(stat = "summary",
+                 fun = "mean")
+
+select(CPP, Manufacturer)
+majorMaker <- c("MERCEDES-BENZ", "JAGUAR")
+CarMaker <- filter(CPP, Manufacturer %in% majorMaker) +
+  filter(Price <= 10000)
+CarMaker
+ggplot(data = CarMaker, aes(x = Manufacturer, y = Price, fill = Manufacturer)) +
+  geom_violin()
+
+
+filter2Data <- filter(CPP, Model == "Prius" , Category == "Sedan" , Color == "Black")
+filterData
+filter2Data
+  ggplot(data = filterData, aes(x = `Fuel type`)) +
     geom_bar()
-  ggplot(data = filter2Data, aes(x = `Fuel type`, fill = "Blue")) +
-    geom_bar()
-
-
-CPP %>%
-  filter(Price >= 100, Model == "Civic") %>%
-  ggplot(aes(x = Model, y = Price)) +
+  ggplot(data = filter2Data, aes(x = `Fuel type`)) +
     geom_bar()
 
            
