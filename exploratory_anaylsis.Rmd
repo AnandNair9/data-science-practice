@@ -1,0 +1,44 @@
+## Practice plotting with your dataset
+
+library(ggplot2)
+library(dplyr)
+
+ggplot(data = CPP, aes(x = Manufacturer, y = Price)) +
+  geom_point()
+  
+  
+##Practicesubsetting data
+# use a combination of
+# filter, select, mutate, arrange, summarize, group_by, sample, and/or slice
+# create a visualization using your new subset of data
+
+```{r}
+View(CPP)
+names(CPP)
+
+CPP %>%
+  filter(Price >= 1000) %>%
+  ggplot(aes(x = Price)) +
+    geom_histogram()
+
+ggplot(CPP, aes(x = Mileage)) +
+  geom_bar()
+
+CPP %>%
+  filterData <- filter(CPP, Model == "Civic" , Category == "Sedan" , Color == "Black")
+  filter2Data <- filter(CPP, Model == "Prius" , Category == "Sedan" , Color == "Black")
+  filterData
+  filter2Data
+  ggplot(data = filterData, aes(x = `Fuel type`, fill = "Red")) +
+    geom_bar()
+  ggplot(data = filter2Data, aes(x = `Fuel type`, fill = "Blue")) +
+    geom_bar()
+
+
+CPP %>%
+  filter(Price >= 100, Model == "Civic") %>%
+  ggplot(aes(x = Model, y = Price)) +
+    geom_bar()
+
+           
+```
